@@ -1,0 +1,401 @@
+<!-- ========================================= -->
+<!-- FILE: admin.html -->
+<!-- SAHAM PRO ADMIN DASHBOARD -->
+<!-- ========================================= -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saham Pro Admin</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+.gold{
+color:#f5c542;
+}
+
+.glass{
+background:rgba(255,255,255,.04);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:270px;
+height:100%;
+background:#070707;
+padding:30px 20px;
+border-right:1px solid rgba(255,255,255,.08);
+overflow:auto;
+}
+
+.main{
+margin-left:270px;
+padding:30px;
+}
+
+.glow{
+box-shadow:0 0 40px rgba(245,197,66,.15);
+}
+
+input, textarea, select{
+background:#0a0a0a;
+border:1px solid rgba(255,255,255,.08);
+outline:none;
+color:white;
+}
+
+@media(max-width:900px){
+
+.sidebar{
+display:none;
+}
+
+.main{
+margin-left:0;
+padding-bottom:120px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+const adminPass = prompt("ENTER ADMIN PASSWORD");
+
+if(adminPass !== "ADMINSAHAMPRO"){
+
+document.write(`
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:black;
+color:white;
+font-size:40px;
+font-family:sans-serif;
+">
+ADMIN ACCESS DENIED
+</div>
+`);
+
+}
+
+</script>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h1 class="text-4xl font-black gold">
+ADMIN
+</h1>
+
+<p class="text-white/40 mt-2">
+Saham Pro Control Panel
+</p>
+
+<div class="mt-10 space-y-3">
+
+<a href="#signal" class="block glass rounded-2xl px-5 py-4">
+📈 Upload Signal
+</a>
+
+<a href="#notif" class="block glass rounded-2xl px-5 py-4">
+🔔 Send Notification
+</a>
+
+<a href="#news" class="block glass rounded-2xl px-5 py-4">
+📰 Market News
+</a>
+
+<a href="#members" class="block glass rounded-2xl px-5 py-4">
+👥 Members
+</a>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- HEADER -->
+
+<div class="flex flex-col lg:flex-row justify-between gap-6 items-start lg:items-center">
+
+<div>
+
+<h1 class="text-6xl font-black">
+ADMIN DASHBOARD
+</h1>
+
+<p class="text-white/50 mt-4">
+Manage VIP Signals & Members
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-6 glow">
+
+<p class="text-white/40 text-sm">
+ACTIVE MEMBERS
+</p>
+
+<h2 class="text-5xl font-black gold mt-3">
+12,493
+</h2>
+
+</div>
+
+</div>
+
+<!-- SIGNAL -->
+
+<section id="signal" class="mt-20">
+
+<h2 class="text-4xl font-black gold">
+UPLOAD SIGNAL
+</h2>
+
+<div class="glass rounded-[40px] p-8 mt-10">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input
+type="text"
+placeholder="Stock Code"
+class="rounded-2xl p-5"
+/>
+
+<select class="rounded-2xl p-5">
+
+<option>BUY</option>
+<option>SELL</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Entry Price"
+class="rounded-2xl p-5"
+/>
+
+<input
+type="text"
+placeholder="Take Profit"
+class="rounded-2xl p-5"
+/>
+
+<input
+type="text"
+placeholder="Stop Loss"
+class="rounded-2xl p-5"
+/>
+
+<input
+type="text"
+placeholder="AI Confidence %"
+class="rounded-2xl p-5"
+/>
+
+</div>
+
+<textarea
+placeholder="Signal Notes..."
+class="rounded-2xl p-5 mt-6 w-full h-[150px]"
+></textarea>
+
+<button
+onclick="uploadSignal()"
+class="mt-8 bg-yellow-400 text-black px-8 py-5 rounded-2xl font-black hover:scale-105 transition"
+>
+
+UPLOAD SIGNAL
+
+</button>
+
+</div>
+
+</section>
+
+<!-- NOTIFICATION -->
+
+<section id="notif" class="mt-24">
+
+<h2 class="text-4xl font-black gold">
+SEND NOTIFICATION
+</h2>
+
+<div class="glass rounded-[40px] p-8 mt-10">
+
+<input
+type="text"
+placeholder="Notification Title"
+class="rounded-2xl p-5 w-full"
+/>
+
+<textarea
+placeholder="Message..."
+class="rounded-2xl p-5 mt-6 w-full h-[150px]"
+></textarea>
+
+<button
+onclick="sendNotif()"
+class="mt-8 bg-yellow-400 text-black px-8 py-5 rounded-2xl font-black hover:scale-105 transition"
+>
+
+SEND TO MEMBERS
+
+</button>
+
+</div>
+
+</section>
+
+<!-- NEWS -->
+
+<section id="news" class="mt-24">
+
+<h2 class="text-4xl font-black gold">
+MARKET NEWS UPDATE
+</h2>
+
+<div class="glass rounded-[40px] p-8 mt-10">
+
+<input
+type="text"
+placeholder="News Headline"
+class="rounded-2xl p-5 w-full"
+/>
+
+<textarea
+placeholder="News Content..."
+class="rounded-2xl p-5 mt-6 w-full h-[200px]"
+></textarea>
+
+<button
+onclick="uploadNews()"
+class="mt-8 bg-yellow-400 text-black px-8 py-5 rounded-2xl font-black hover:scale-105 transition"
+>
+
+UPLOAD NEWS
+
+</button>
+
+</div>
+
+</section>
+
+<!-- MEMBERS -->
+
+<section id="members" class="mt-24">
+
+<h2 class="text-4xl font-black gold">
+VIP MEMBERS
+</h2>
+
+<div class="glass rounded-[40px] p-8 mt-10 overflow-auto">
+
+<table class="w-full">
+
+<tr class="border-b border-white/10">
+
+<th class="text-left py-5">Name</th>
+<th class="text-left py-5">Package</th>
+<th class="text-left py-5">Status</th>
+
+</tr>
+
+<tr class="border-b border-white/10">
+
+<td class="py-5">Rizky</td>
+<td>VIP</td>
+<td class="text-green-400">ACTIVE</td>
+
+</tr>
+
+<tr class="border-b border-white/10">
+
+<td class="py-5">Andi</td>
+<td>SULTAN</td>
+<td class="text-green-400">ACTIVE</td>
+
+</tr>
+
+<tr>
+
+<td class="py-5">Kevin</td>
+<td>STARTER</td>
+<td class="text-red-400">EXPIRED</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+function uploadSignal(){
+
+alert("SIGNAL UPLOADED SUCCESSFULLY");
+
+}
+
+function sendNotif(){
+
+alert("NOTIFICATION SENT TO ALL MEMBERS");
+
+}
+
+function uploadNews(){
+
+alert("MARKET NEWS UPDATED");
+
+}
+
+/* DISABLE RIGHT CLICK */
+
+document.addEventListener('contextmenu',e=>e.preventDefault());
+
+</script>
+
+</body>
+</html>
