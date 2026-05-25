@@ -148,3 +148,24 @@ button {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.watchlist {
+  margin-top: 20px;
+}
+
+.watch-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  background: #111;
+  border: 1px solid gold;
+  border-radius: 8px;
+}
+
+.watch-item button {
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
