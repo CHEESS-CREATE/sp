@@ -169,3 +169,17 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.heat-item {
+  padding: 15px;
+  background: #111;
+  border-radius: 10px;
+  text-align: center;
+}
