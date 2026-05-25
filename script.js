@@ -147,3 +147,55 @@ document.addEventListener("DOMContentLoaded", () => {
   if (p) p.innerText = "+" + profit + "%";
   if (d) d.innerText = pnl + "%";
 });
+
+// LOAD WATCHLIST
+function getWatchlist() {
+  return JSON.parse(localStorage.getItem("watchlist") || "[]");
+}
+
+// SAVE WATCHLIST
+function saveWatchlist(list) {
+  localStorage.setItem("watchlist", JSON.stringify(list));
+}
+
+// ADD STOCK
+function addStock() {
+  let input = document.getElementById("stockInput").value.toUpperCase();
+  if (!input) return;
+
+  let list = getWatchlist();
+
+  if (!list.includes(input)) {
+    list.push(input);
+  }
+
+  saveWatchlist(list);
+  renderWatchlist();
+}
+
+// REMOVE STOCK
+function removeStock(stock) {
+  let list = getWatchlist().filter(s => s !== stock);
+  saveWatchlist(list);
+  renderWatchlist();
+}
+
+// RENDER
+function renderWatchlist() {
+  let box = document.getElementById("watchlistBox");
+  if (!box) return;
+
+  let list = getWatchlist();
+
+  box.innerHTML = list.map(stock => `
+    <div class="watch-item">
+      <span>${stock}</span>
+      <button onclick="removeStock('${stock}')">X</button>
+    </div>
+  `).join("");
+}
+
+// AUTO LOAD
+if (window.location.pathname.includes("watchlist.html")) {
+  window.onload = renderWatchlist;
+}
