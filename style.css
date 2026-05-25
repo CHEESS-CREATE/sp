@@ -1,3 +1,30 @@
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, #111, black);
+}
+
+.login-box {
+  padding: 40px;
+  border: 1px solid gold;
+  border-radius: 12px;
+  text-align: center;
+  background: #111;
+}
+
+.login-box input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+}
+
+.login-box button {
+  width: 85%;
+}
+
 body {
   margin: 0;
   font-family: Arial;
