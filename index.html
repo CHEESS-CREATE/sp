@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Saham Pro VIP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <h1>SAHAMPROVIP</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="scanner.html">Scanner</a>
+    <a href="signal.html">Signal</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="vip.html">VIP</a>
+    <a href="admin.html">Admin</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h2>Futuristic Gold Trading Dashboard</h2>
+  <p>Technical Analysis • AI Market • Auto Profit Tracker</p>
+</header>
+
+<section class="grid">
+  <div class="card">📈 Total Profit: <span id="profit">0</span>%</div>
+  <div class="card">📊 Daily PnL: <span id="pnl">0</span>%</div>
+  <div class="card">🔥 Win Rate: <span id="winrate">0</span>%</div>
+  <div class="card">🤖 Ask AI Market</div>
+</section>
+
+<section class="ai-box">
+  <h3>Ask AI About Market</h3>
+  <input id="aiInput" placeholder="contoh: IHSG besok naik?" />
+  <button onclick="askAI()">Tanya</button>
+  <p id="aiAnswer"></p>
+</section>
+
+<footer class="footer">
+  <p>SAHAMPROVIP © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
