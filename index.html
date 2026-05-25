@@ -779,6 +779,404 @@ document.getElementById("memberCounter").innerText = counter.toLocaleString();
 },3000);
 
 </script>
+<!-- ========================= -->
+<!-- SAHAM PRO PREMIUM SYSTEM -->
+<!-- ========================= -->
 
+<!-- PASTE DI ATAS </body> -->
+
+<!-- LOADING SCREEN -->
+
+<div id="loader" class="fixed inset-0 bg-black z-[99999] flex flex-col items-center justify-center">
+
+<h1 class="text-6xl font-black gold animate-pulse">
+SAHAM PRO
+</h1>
+
+<p class="text-white/40 mt-4">
+Loading Institutional Terminal...
+</p>
+
+</div>
+
+<!-- RUNNING MARKET -->
+
+<div class="fixed top-0 left-0 w-full z-[999] bg-yellow-400 text-black overflow-hidden py-2 font-bold">
+
+<marquee behavior="scroll" direction="left">
+
+BBCA +7.2% • TLKM +3.1% • AMMN +5.8% • Foreign Buy +842B • IHSG +1.24% • Smart Money Accumulation Detected • VIP Signal WINRATE 87%
+
+</marquee>
+
+</div>
+
+<!-- COUNTDOWN -->
+
+<section class="py-16">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<div class="glass rounded-[40px] p-10 text-center border border-yellow-400/20 glow">
+
+<p class="gold uppercase tracking-[6px] text-sm font-bold">
+LIMITED PROMO
+</p>
+
+<h2 class="text-5xl font-black mt-6">
+VIP Discount Ends In
+</h2>
+
+<div id="countdown" class="text-6xl font-black gold mt-10">
+24:00:00
+</div>
+
+<p class="text-white/40 mt-6">
+Join before price returns to normal.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOGIN -->
+
+<section class="py-32">
+
+<div class="max-w-md mx-auto px-6">
+
+<div class="glass rounded-[40px] p-10">
+
+<h2 class="text-4xl font-black gold text-center">
+Member Login
+</h2>
+
+<input
+type="email"
+placeholder="Email"
+class="w-full mt-8 bg-black/40 border border-white/10 rounded-2xl p-5 outline-none"
+/>
+
+<input
+type="password"
+placeholder="Password"
+class="w-full mt-5 bg-black/40 border border-white/10 rounded-2xl p-5 outline-none"
+/>
+
+<button
+onclick="fakeLogin()"
+class="w-full mt-8 bg-yellow-400 text-black py-5 rounded-2xl font-black hover:scale-105 transition"
+>
+
+LOGIN MEMBER
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TOP GAINER -->
+
+<section class="py-32">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-20">
+
+<p class="gold uppercase tracking-[6px] text-sm font-bold">
+TOP GAINER
+</p>
+
+<h2 class="text-5xl lg:text-7xl font-black mt-6">
+Realtime Market Movers
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-4 gap-6">
+
+<div class="glass rounded-3xl p-6">
+
+<h3 class="text-3xl font-black gold">
+BBCA
+</h3>
+
+<p class="mt-4 text-green-400 text-2xl font-bold">
++7.21%
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-6">
+
+<h3 class="text-3xl font-black gold">
+AMMN
+</h3>
+
+<p class="mt-4 text-green-400 text-2xl font-bold">
++5.82%
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-6">
+
+<h3 class="text-3xl font-black gold">
+BRMS
+</h3>
+
+<p class="mt-4 text-green-400 text-2xl font-bold">
++8.14%
+</p>
+
+</div>
+
+<div class="glass rounded-3xl p-6">
+
+<h3 class="text-3xl font-black gold">
+TLKM
+</h3>
+
+<p class="mt-4 text-green-400 text-2xl font-bold">
++4.22%
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ECONOMIC CALENDAR -->
+
+<section class="py-32">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-20">
+
+<p class="gold uppercase tracking-[6px] text-sm font-bold">
+ECONOMIC CALENDAR
+</p>
+
+<h2 class="text-5xl lg:text-7xl font-black mt-6">
+Major Market Events
+</h2>
+
+</div>
+
+<div class="glass rounded-[40px] p-10 overflow-auto">
+
+<table class="w-full">
+
+<tr class="border-b border-white/10">
+
+<th class="text-left py-5">Date</th>
+<th class="text-left py-5">Event</th>
+<th class="text-left py-5">Impact</th>
+
+</tr>
+
+<tr class="border-b border-white/10">
+
+<td class="py-5">24 JUL</td>
+<td>US Interest Rate</td>
+<td class="text-red-400">HIGH</td>
+
+</tr>
+
+<tr class="border-b border-white/10">
+
+<td class="py-5">26 JUL</td>
+<td>Indonesia Inflation</td>
+<td class="text-yellow-400">MEDIUM</td>
+
+</tr>
+
+<tr>
+
+<td class="py-5">28 JUL</td>
+<td>Fed Speech</td>
+<td class="text-red-400">HIGH</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- QRIS POPUP -->
+
+<div id="paymentPopup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-6">
+
+<div class="glass rounded-[40px] p-8 max-w-md w-full text-center relative">
+
+<button
+onclick="closePopup()"
+class="absolute top-5 right-5 text-white/50 text-2xl"
+>
+
+✕
+
+</button>
+
+<h2 class="text-4xl font-black gold">
+Scan QRIS
+</h2>
+
+<p class="text-white/50 mt-4">
+Complete payment to unlock VIP access.
+</p>
+
+<div class="bg-white rounded-[30px] p-5 mt-8">
+
+<img
+src="qris.jpg"
+class="rounded-2xl w-full"
+/>
+
+</div>
+
+<a
+href="https://wa.me/6287832727925"
+target="_blank"
+class="block w-full mt-8 bg-yellow-400 text-black py-5 rounded-2xl font-black hover:scale-105 transition"
+>
+
+SEND PAYMENT PROOF
+
+</a>
+
+</div>
+
+</div>
+
+<!-- POPUP MEMBER JOIN -->
+
+<div id="joinPopup" class="fixed bottom-5 right-5 glass rounded-2xl px-5 py-4 z-[9999] hidden">
+
+<p class="text-sm">
+🔥 New VIP Member Joined
+</p>
+
+<p class="gold font-bold mt-1">
+Jakarta • VIP Package
+</p>
+
+</div>
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display="none";
+
+},2500);
+
+});
+
+/* COUNTDOWN */
+
+let time = 86400;
+
+setInterval(()=>{
+
+let hours = Math.floor(time / 3600);
+let minutes = Math.floor((time % 3600)/60);
+let seconds = time % 60;
+
+document.getElementById("countdown").innerHTML =
+String(hours).padStart(2,'0') + ":" +
+String(minutes).padStart(2,'0') + ":" +
+String(seconds).padStart(2,'0');
+
+time--;
+
+},1000);
+
+/* LOGIN */
+
+function fakeLogin(){
+
+alert("Login Success — Welcome To Saham Pro VIP");
+
+}
+
+/* PAYMENT POPUP */
+
+function openPopup(){
+
+document.getElementById("paymentPopup").style.display="flex";
+
+}
+
+function closePopup(){
+
+document.getElementById("paymentPopup").style.display="none";
+
+}
+
+/* BUTTON ACTION */
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+if(
+btn.innerText.includes("VIP") ||
+btn.innerText.includes("STARTED") ||
+btn.innerText.includes("SULTAN") ||
+btn.innerText.includes("ACCESS")
+){
+
+openPopup();
+
+}
+
+});
+
+});
+
+/* MEMBER POPUP */
+
+setInterval(()=>{
+
+const popup = document.getElementById("joinPopup");
+
+popup.style.display="block";
+
+setTimeout(()=>{
+
+popup.style.display="none";
+
+},4000);
+
+},9000);
+
+/* PROFIT ANIMATION */
+
+document.querySelectorAll(".gold").forEach(el=>{
+
+el.style.transition="all .5s";
+
+});
+
+</script>
+  
 </body>
 </html>
