@@ -2,45 +2,77 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Saham Pro VIP</title>
+  <title>Saham Pro Terminal</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-  <h1>SAHAMPROVIP</h1>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="scanner.html">Scanner</a>
-    <a href="signal.html">Signal</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="vip.html">VIP</a>
-    <a href="admin.html">Admin</a>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2 class="logo">SAHAMPROVIP</h2>
+
+  <a href="index.html">📊 Dashboard</a>
+  <a href="scanner.html">🤖 AI Scanner</a>
+  <a href="signal.html">📡 Buy/Sell Signal</a>
+  <a href="portfolio.html">💼 Portfolio</a>
+  <a href="watchlist.html">👀 Watchlist</a>
+  <a href="news.html">📰 News</a>
+  <a href="admin.html">🛠 Admin</a>
+  <a href="vip.html">🔐 VIP</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <div class="topbar">
+    <h1>Saham Pro Terminal</h1>
+    <div class="userbox">
+      👤 Guest Member | Level: Basic
+    </div>
   </div>
-</nav>
 
-<header class="hero">
-  <h2>Futuristic Gold Trading Dashboard</h2>
-  <p>Technical Analysis • AI Market • Auto Profit Tracker</p>
-</header>
+  <!-- MARKET CARDS -->
+  <div class="grid">
+    <div class="card green">
+      💰 Total Profit<br>
+      <h2 id="profit">+12.5%</h2>
+    </div>
 
-<section class="grid">
-  <div class="card">📈 Total Profit: <span id="profit">0</span>%</div>
-  <div class="card">📊 Daily PnL: <span id="pnl">0</span>%</div>
-  <div class="card">🔥 Win Rate: <span id="winrate">0</span>%</div>
-  <div class="card">🤖 Ask AI Market</div>
-</section>
+    <div class="card red">
+      📉 Daily PnL<br>
+      <h2 id="pnl">-1.2%</h2>
+    </div>
 
-<section class="ai-box">
-  <h3>Ask AI About Market</h3>
-  <input id="aiInput" placeholder="contoh: IHSG besok naik?" />
-  <button onclick="askAI()">Tanya</button>
-  <p id="aiAnswer"></p>
-</section>
+    <div class="card gold">
+      🎯 Win Rate<br>
+      <h2>78%</h2>
+    </div>
 
-<footer class="footer">
-  <p>SAHAMPROVIP © 2026</p>
-</footer>
+    <div class="card">
+      🤖 AI Status<br>
+      <h2>ACTIVE</h2>
+    </div>
+  </div>
+
+  <!-- AI BOX -->
+  <div class="panel">
+    <h2>Ask AI About Market</h2>
+
+    <input id="aiInput" placeholder="contoh: IHSG besok?" />
+    <button onclick="askAI()">Ask</button>
+
+    <p id="aiAnswer"></p>
+  </div>
+
+  <!-- LIVE SIGNAL -->
+  <div class="panel">
+    <h2>Live Signal Feed</h2>
+    <button onclick="generateSignal()">Generate Signal</button>
+    <div id="signalBox"></div>
+  </div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
