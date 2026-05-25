@@ -199,3 +199,47 @@ function renderWatchlist() {
 if (window.location.pathname.includes("watchlist.html")) {
   window.onload = renderWatchlist;
 }
+
+const heatStocks = [
+  "BBRI","BBCA","BMRI","TLKM","ASII",
+  "GOTO","ANTM","UNVR","ICBP","INDF"
+];
+
+// RANDOM INTENSITY
+function getStrength() {
+  return Math.random();
+}
+
+// COLOR LOGIC
+function getColor(strength) {
+  if (strength > 0.7) return "green";
+  if (strength > 0.4) return "yellow";
+  return "red";
+}
+
+// RENDER HEATMAP
+function renderHeatmap() {
+  let box = document.getElementById("heatmap");
+  if (!box) return;
+
+  box.innerHTML = heatStocks.map(stock => {
+    let strength = getStrength();
+    let color = getColor(strength);
+
+    return `
+      <div class="heat-item" style="border:1px solid ${color}">
+        <h3>${stock}</h3>
+        <p>Flow: ${color.toUpperCase()}</p>
+        <p>Score: ${(strength * 100).toFixed(0)}</p>
+      </div>
+    `;
+  }).join("");
+}
+
+// AUTO LOAD HEATMAP
+if (window.location.pathname.includes("heatmap.html")) {
+  window.onload = () => {
+    renderHeatmap();
+    setInterval(renderHeatmap, 5000);
+  };
+}
