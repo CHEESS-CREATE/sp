@@ -58,6 +58,87 @@ function generateSignal() {
   alert(`NEW SIGNAL: ${stock} ${signal} (${confidence}%)`);
 }
 
+const stocks = ["BBRI", "TLKM", "ASII", "ANTM", "BMRI", "GOTO", "BBCA"];
+
+function rand(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// 🔥 SMART MONEY DETECTOR
+function detectSmartMoney() {
+  const events = [
+    "BREAKOUT DETECTED",
+    "VOLUME SPIKE INSTITUTIONAL",
+    "ACCUMULATION PHASE",
+    "FAKE BREAKOUT FILTERED",
+    "REVERSAL SIGNAL",
+    "UNUSUAL BUY ORDER FLOW"
+  ];
+
+  return events[Math.floor(Math.random() * events.length)];
+}
+
+// 📡 GENERATE AI SIGNAL PRO
+function generateAISignal() {
+  let stock = stocks[Math.floor(Math.random() * stocks.length)];
+
+  let direction = Math.random() > 0.5 ? "BUY 🔼" : "SELL 🔽";
+
+  let entry = rand(1000, 8000).toFixed(2);
+  let tp = (entry * rand(1.03, 1.08)).toFixed(2);
+  let sl = (entry * rand(0.95, 0.98)).toFixed(2);
+  let rr = "1:" + rand(1, 3).toFixed(1);
+  let confidence = Math.floor(rand(65, 95));
+  let smartEvent = detectSmartMoney();
+
+  let color = direction.includes("BUY") ? "lime" : "red";
+
+  return `
+    <div class="signal-card">
+      <h2>${stock}</h2>
+      <h3 style="color:${color}">${direction}</h3>
+
+      <p>📍 Entry: ${entry}</p>
+      <p>🎯 TP: ${tp}</p>
+      <p>⛔ SL: ${sl}</p>
+      <p>⚖ RR: ${rr}</p>
+      <p>🧠 AI Confidence: ${confidence}%</p>
+
+      <p style="color:gold">⚡ Smart Money: ${smartEvent}</p>
+    </div>
+  `;
+}
+
+// 📡 REALTIME SIGNAL FEED
+function startRealtimeSignals() {
+  const box = document.getElementById("signalBox");
+
+  setInterval(() => {
+    box.innerHTML = generateAISignal();
+
+    showToast("NEW SMART MONEY SIGNAL DETECTED 🚨");
+  }, 4000);
+}
+
+// 🔔 TOAST NOTIFICATION
+function showToast(msg) {
+  let toast = document.createElement("div");
+
+  toast.innerText = msg;
+  toast.className = "toast";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+// AUTO START kalau di signal page
+if (window.location.pathname.includes("signal.html")) {
+  window.onload = startRealtimeSignals;
+}
+
 // INIT DASHBOARD VALUE
 document.addEventListener("DOMContentLoaded", () => {
   let p = document.getElementById("profit");
